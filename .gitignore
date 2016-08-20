@@ -1,2 +1,5 @@
 *.native
 **/_build/*
+.stack-work
+LICENSE
+**/Setup.hs
