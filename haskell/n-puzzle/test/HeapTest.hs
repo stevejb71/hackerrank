@@ -1,19 +1,12 @@
 module HeapTest (heapTests) where
 
+import Common
 import Heap
 import Test.Tasty
 import Test.Tasty.HUnit as HU
 import Test.Tasty.QuickCheck as QC
 import Data.Maybe (isNothing)
 import Data.List.NonEmpty (NonEmpty(..), toList, nonEmpty)
-
-newtype Thing = Thing Int deriving (Eq, Show, Ord)
-instance HasPriority Thing where
-  priority (Thing x) = x
-instance Arbitrary Thing where
-  arbitrary = Thing <$> arbitrary
-instance Arbitrary a => Arbitrary (NonEmpty a) where
-  arbitrary = (:|) <$> arbitrary <*> arbitrary
 
 heapTests = testGroup "Unit tests" [
   HU.testCase "min value of Empty" $

@@ -15,8 +15,8 @@ cabal-version:       >=1.10
 
 library
   hs-source-dirs:      src
-  exposed-modules:     Heap
-  build-depends:       base >= 4.7 && < 5
+  exposed-modules:     Heap, Search, NPuzzle
+  build-depends:       base >= 4.7 && < 5, containers, vector
   default-language:    Haskell2010
 
 executable n-puzzle-exe
@@ -25,18 +25,21 @@ executable n-puzzle-exe
   ghc-options:         -threaded -rtsopts -with-rtsopts=-N
   build-depends:       base
                      , n-puzzle
+                     , vector
   default-language:    Haskell2010
 
 test-suite n-puzzle-test
   type:                exitcode-stdio-1.0
   hs-source-dirs:      test
   main-is:             Spec.hs
-  build-depends:       base, semigroups, QuickCheck, tasty, tasty-hunit, tasty-quickcheck
+  build-depends:       base, containers, semigroups, QuickCheck,
+                       tasty, tasty-hunit, tasty-quickcheck,
+                       vector
                      , n-puzzle
   ghc-options:         -threaded -rtsopts -with-rtsopts=-N
   default-language:    Haskell2010
   default-extensions:  ScopedTypeVariables, FlexibleInstances, MultiParamTypeClasses
-  other-modules:       HeapTest
+  other-modules:       Common, HeapTest, SearchTest, NPuzzleTest
 
 source-repository head
   type:     git

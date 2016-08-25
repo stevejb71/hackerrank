@@ -34,3 +34,7 @@ insert x h = singleton x +++ h
 
 insertMany :: (Foldable t, HasPriority a) => t a -> PairingHeap a -> PairingHeap a
 insertMany as q = F.foldl (\h c -> h +++ singleton c) q as
+
+isEmpty :: PairingHeap a -> Bool
+isEmpty Empty = True
+isEmpty _ = False
