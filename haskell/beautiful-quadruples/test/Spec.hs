@@ -22,10 +22,14 @@ main = defaultMain $ testGroup "All Tests"
   ]
 
 -- naive
-  -- small 1:  OK
-  -- small 2:  OK
-  -- small 3:  OK
   -- medium 1: OK (0.03s)
   -- medium 2: OK (3.14s)
   -- medium 3: OK (19.83s)
+
+-- remove tuple creation
+  -- medium 1: OK (0.03s)
+  -- medium 2: OK (2.28s)
+  -- medium 3: OK (14.21s)
+
+
 
