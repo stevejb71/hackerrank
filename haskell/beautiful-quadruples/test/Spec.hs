@@ -43,5 +43,31 @@ main = defaultMain $ testGroup "All Tests"
   -- very big: OK (38.28s)
   -- max size: OK (62.18s)
 
+-- new approach
+  -- medium 1: OK (0.02s)
+  -- medium 2: OK (0.37s)
+  -- medium 3: OK (3.46s)
+  -- big:      OK (4.53s)
+  -- very big: OK (53.11s)
+  -- max size: OK (116.63s)
+
+-- new approach with vector in value
+  -- medium 1: OK (0.04s)
+  -- medium 2: OK (0.33s)
+  -- medium 3: OK (2.06s)
+  -- big:      OK (3.04s)
+  -- very big: OK (27.36s)
+  -- max size: OK (99.29s)
+
+-- vector replacing maps
+  -- medium 1: OK (0.04s)
+  -- medium 2: OK (1.13s)
+  -- medium 3: OK (7.66s)
+  -- big:      OK (11.72s)
+  -- very big: OK (42.15s)
+  -- max size: OK (75.21s)
+
+
+
 
 
