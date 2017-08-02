@@ -1,8 +1,7 @@
-module Lib
-    ( solve
-    ) where
+module Lib where
 
 import Data.Bits (xor)
+import qualified Data.List as List
 
 solve :: Int -> Int -> Int -> Int -> Int
 solve a b c d = sum $ allQuadruples a b c d
@@ -17,19 +16,14 @@ allQuadruples a b c d = do
   else do
     y <- [x..c]
     let wxy = wx `xor` y
-    if wxy == 0
-    then return (d - y + 1)
-    else do
-      z <- [y..d]
-      return $ if wxy == z then 0 else 1
+    return $ 
+      if wxy < y || d < wxy
+      then d - y + 1
+      else d - y
 
 countUnequal :: Int -> Int -> Int -> Int
 countUnequal x c d = 
   let x' = x - 1 
       c' = c - x' 
       d' = d - x'
-  in c' * (c - x) `div` 2 + c' * (d - c)
-
-
-        -- return $ 
-        -- if y <= wxy && wxy <= d then d - y - 1 else d - y
+  in c' * (c' - 1) `div` 2 + c' * (d' - c')

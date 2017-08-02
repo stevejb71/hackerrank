@@ -17,8 +17,12 @@ main = defaultMain $ testGroup "All Tests"
       solve 246 357 468 590 @?= 3543761460
   , testCase "medium 3" $
       solve 546 757 768 890 @?= 23499253234
-  -- , testCase "big" $
-  --     solve 423 853 1150 1547 @?= 127535297312
+  , testCase "big" $
+      solve 423 853 1150 1547 @?= 127535297312
+  , testCase "very big" $
+      solve 1706 1929 2824 2923 @?= 2666133769916
+  , testCase "max size" $
+      solve 3000 3000 3000 3000 @?= 3380895410799
   ]
 
 -- naive
@@ -30,6 +34,14 @@ main = defaultMain $ testGroup "All Tests"
   -- medium 1: OK (0.03s)
   -- medium 2: OK (2.28s)
   -- medium 3: OK (14.21s)
+
+-- replace some loops with calculations:
+  -- medium 1: OK (0.05s)
+  -- medium 2: OK (0.34s)
+  -- medium 3: OK (1.32s)
+  -- big:      OK (2.79s)
+  -- very big: OK (38.28s)
+  -- max size: OK (62.18s)
 
 
 

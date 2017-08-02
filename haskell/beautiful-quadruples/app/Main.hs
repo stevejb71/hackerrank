@@ -3,8 +3,6 @@ module Main where
 import Lib
 import qualified Data.List as List
 
-data VarTuple = Pair Int Int | Quad Int Int Int Int
-
 main :: IO ()
 main = do
   values <- readInts <$> getLine
