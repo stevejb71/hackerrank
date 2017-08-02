@@ -17,8 +17,11 @@ allQuadruples a b c d = do
   else do
     y <- [x..c]
     let wxy = wx `xor` y
-    z <- [y..d]
-    return $ if wxy `xor` z == 0 then 0 else 1
+    if wxy == 0
+    then return (d - y + 1)
+    else do
+      z <- [y..d]
+      return $ if wxy == z then 0 else 1
 
 countUnequal :: Int -> Int -> Int -> Int
 countUnequal x c d = 
@@ -26,3 +29,7 @@ countUnequal x c d =
       c' = c - x' 
       d' = d - x'
   in c' * (c - x) `div` 2 + c' * (d - c)
+
+
+        -- return $ 
+        -- if y <= wxy && wxy <= d then d - y - 1 else d - y
