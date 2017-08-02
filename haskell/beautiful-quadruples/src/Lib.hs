@@ -11,7 +11,18 @@ allQuadruples :: Int -> Int -> Int -> Int -> [Int]
 allQuadruples a b c d = do
   w <- [1..a]
   x <- [w..b]
-  y <- [x..c]
-  z <- [y..d]
-  return $ if w `xor` x `xor` y `xor `z == 0 then 0 else 1
+  let wx = w `xor` x
+  if wx == 0
+  then return $ countUnequal x c d
+  else do
+    y <- [x..c]
+    let wxy = wx `xor` y
+    z <- [y..d]
+    return $ if wxy `xor` z == 0 then 0 else 1
 
+countUnequal :: Int -> Int -> Int -> Int
+countUnequal x c d = 
+  let x' = x - 1 
+      c' = c - x' 
+      d' = d - x'
+  in c' * (c - x) `div` 2 + c' * (d - c)
