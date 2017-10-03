@@ -4,3 +4,5 @@
 LICENSE
 **/Setup.hs
 **/sample.txt
+**/.idea
+**/target
